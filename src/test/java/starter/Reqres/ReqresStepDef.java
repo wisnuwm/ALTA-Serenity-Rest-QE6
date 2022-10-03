@@ -48,6 +48,7 @@ public class ReqresStepDef {
     public void postCreateNewUser() {
         File json = new File(ReqresAPI.JSON_FILE+"/RequestBody/PostCreateNewUser.json");
         reqresAPI.postCreateNewUser(json);
+
     }
 
     @When("Send request post create new user")
@@ -78,6 +79,8 @@ public class ReqresStepDef {
     public void putUpdateUserWithIdId(int id) {
         File json = new File(ReqresAPI.JSON_FILE+"/RequestBody/PutUpdateUser.json");
         reqresAPI.putUpdateUser(id,json);
+
+
     }
 
     @When("Send request put update user")
