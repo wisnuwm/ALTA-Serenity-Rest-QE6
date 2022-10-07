@@ -17,6 +17,8 @@ public class ReqresAPI {
     public static String PUT_UPDATE_USER = URL+"/api/users/{id}";
     public static String DELETE_USER = URL+"/api/users/{id}";
 
+    public int pageId;
+
     @Step("Get list users")
     public void getListUsers(int page){
 

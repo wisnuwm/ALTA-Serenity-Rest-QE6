@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.module.jsv.JsonSchemaValidator;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import static org.hamcrest.Matchers.equalTo;
@@ -16,6 +18,7 @@ public class ReqresStepDef {
     @Steps
     ReqresAPI reqresAPI;
 
+    public static int page;
     //scenario 1
     @Given("Get list user with parameter page {int}")
     public void getListUserWithParameterPage(int page) {
@@ -24,12 +27,32 @@ public class ReqresStepDef {
 
     @When("Send request get list user")
     public void sendRequestGetListUser() {
-        SerenityRest.when().get(ReqresAPI.GET_LIST_USERS);
+
+        Response response = SerenityRest.when().get(ReqresAPI.GET_LIST_USERS);
+        int id = com.jayway.jsonpath.JsonPath.read(response.asString(), "$.page");
+        System.out.println(id);
+        page = id;
+//        JsonPath jsonPathEvaluator = response.jsonPath();
+//        int page = jsonPathEvaluator.get("page");
+//        System.out.println(page);
     }
 
     @Then("Should return {int} OK")
     public void shouldReturnOK(int ok) {
+
         SerenityRest.then().statusCode(ok);
+    }
+    //TEST
+    @Given("Get list user with parameter page")
+    public void getListUserWithParameterPage() {
+        System.out.println(page);
+        reqresAPI.getListUsers(page);
+        System.out.println("Page: "+page);
+    }
+
+    @When("Send request get list users")
+    public void sendRequestGetListUsers() {
+        SerenityRest.when().get(ReqresAPI.GET_LIST_USERS);
     }
 
     @And("Response body page should be {int}")
