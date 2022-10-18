@@ -39,14 +39,14 @@ public class ReqresStepDef {
 
     @And("Get list user json schema validator")
     public void getListUserJsonSchemaValidator() {
-        File json = new File(ReqresAPI.JSON_SCHEMA+Constant.GET_LIST_USER_JSON_SCHEMA);
+        File json = new File(JsonLocator.GET_LIST_USER_JSON_SCHEMA);
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
     //scenario 2
     @Given("Post create new user")
     public void postCreateNewUser() {
-        File json = new File(ReqresAPI.JSON_REQ_BODY+Constant.POST_CREATE_NEW_USER_REQ_BODY);
+        File json = new File(JsonLocator.POST_CREATE_NEW_USER_REQ_BODY);
         reqresAPI.postCreateNewUser(json);
 
     }
@@ -70,17 +70,15 @@ public class ReqresStepDef {
 
     @And("Post create new user json schema validator")
     public void postCreateNewUserJsonSchemaValidator() {
-        File json = new File(ReqresAPI.JSON_SCHEMA+Constant.POST_CREATE_NEW_USER_JSON_SCHEMA);
+        File json = new File(JsonLocator.POST_CREATE_NEW_USER_JSON_SCHEMA);
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
     //scenario 3
     @Given("Put update user with id {int}")
     public void putUpdateUserWithIdId(int id) {
-        File json = new File(ReqresAPI.JSON_REQ_BODY+Constant.PUT_UPDATE_USER_REQ_BODY);
+        File json = new File(JsonLocator.PUT_UPDATE_USER_REQ_BODY);
         reqresAPI.putUpdateUser(id,json);
-
-
     }
 
     @When("Send request put update user")
@@ -90,7 +88,7 @@ public class ReqresStepDef {
 
     @And("Put update user json schema validator")
     public void putUpdateUserJsonSchemaValidator() {
-        File json = new File(ReqresAPI.JSON_SCHEMA+Constant.PUT_UPDATE_USER_JSON_SCHEMA);
+        File json = new File(JsonLocator.PUT_UPDATE_USER_JSON_SCHEMA);
         SerenityRest.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(json));
     }
 
