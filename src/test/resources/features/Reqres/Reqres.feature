@@ -12,16 +12,6 @@ Feature: Features to test Reqres
     |1   |
     |2   |
 
-#  @tugas
-#  Scenario Outline: Get list user with invalid parameter page
-#    Given Get list user with parameter page "<page>"
-#    When Send request get list user
-#    Then Should return 404 Not found
-#    Examples:
-#      |page|
-#      |xyz   |
-#      |abc   |
-
   @tugas
   Scenario: Post create new user with valid json
     Given Post create new user

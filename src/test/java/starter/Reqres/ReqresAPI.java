@@ -18,17 +18,6 @@ public class ReqresAPI {
         SerenityRest.given().pathParam("page",page);
     }
 
-//    @Step("Get single user with invalid id")
-//    public void getSingleUserInvalidId(String id){
-//        SerenityRest.given().pathParam("page",id);
-//    }
-
-//    @Step("Get list users invalid page")
-//    public void getListUsersInvalidPage(String page){
-//
-//        SerenityRest.given().pathParam("page",page);
-//    }
-
     @Step("Post create new user")
     public void postCreateNewUser(File json){
         SerenityRest.given()
