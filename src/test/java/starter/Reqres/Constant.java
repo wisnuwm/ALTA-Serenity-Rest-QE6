@@ -1,11 +1,8 @@
 package starter.Reqres;
 
 public class Constant {
-    //REQ BODY
-    public static String POST_CREATE_NEW_USER_REQ_BODY = "/PostCreateNewUser.json";
-    public static String PUT_UPDATE_USER_REQ_BODY = "/PutUpdateUser.json";
-    //JSON SCHEMA
-    public static String GET_LIST_USER_JSON_SCHEMA = "/GetListUserJsonSchemaValidator.json";
-    public static String POST_CREATE_NEW_USER_JSON_SCHEMA = "/PostCreateNewUserJsonSchemaValidator.json";
-    public static String PUT_UPDATE_USER_JSON_SCHEMA = "/PutUpdateUserJsonSchemaValidator.json";
+    public static final String URL = "https://reqres.in";
+    public static final String DIR = System.getProperty("user.dir");
+    public static final String JSON_SCHEMA = DIR+"/src/test/resources/JSON/JsonSchema";
+    public static final String JSON_REQ_BODY = DIR+"/src/test/resources/JSON/RequestBody";
 }
